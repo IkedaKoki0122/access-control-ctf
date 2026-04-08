@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}SecureCorp — Dashboard{% endblock %}
+
+{% block content %}
+<div class="dashboard">
+  <h1>Dashboard</h1>
+  <p class="welcome">Welcome back, <strong>{{ name }}</strong></p>
+
+  <div class="grid">
+    <div class="card stat-card">
+      <h3>Your Role</h3>
+      <p class="stat">{{ role | capitalize }}</p>
+    </div>
+    <div class="card stat-card">
+      <h3>Username</h3>
+      <p class="stat">{{ username }}</p>
+    </div>
+    <div class="card stat-card">
+      <h3>Security Level</h3>
+      <p class="stat">{{ role | capitalize }}</p>
+    </div>
+    <div class="card stat-card">
+      <h3>Last Login</h3>
+      <p class="stat">Just now</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Quick Links</h2>
+    <ul class="link-list">
+      <li><a href="{{ url_for('profile') }}">View Profile</a></li>
+      <li><a href="/api/users/{{ username }}">My API Data</a></li>
+      {% if role == 'admin' %}
+        <li><a href="{{ url_for('admin_panel') }}">Admin Panel</a></li>
+      {% endif %}
+    </ul>
+  </div>
+
+  <!-- Internal note: admin endpoints at /admin and /api/admin/* -->
+</div>
+{% endblock %}

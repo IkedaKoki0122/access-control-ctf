@@ -1,0 +1,421 @@
+/* ===== Reset & Base ===== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #0f1117;
+  --surface: #1a1d27;
+  --surface-hover: #222632;
+  --border: #2a2e3b;
+  --text: #e4e6eb;
+  --text-muted: #8b8fa3;
+  --primary: #6c63ff;
+  --primary-hover: #5a52e0;
+  --danger: #ff4d6a;
+  --warning: #ffb347;
+  --success: #4ecdc4;
+  --radius: 10px;
+  --shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--primary-hover);
+}
+
+/* ===== Navbar ===== */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(12px);
+}
+
+.nav-brand a {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.nav-links a {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--text);
+}
+
+.btn-login,
+.btn-logout {
+  padding: 0.4rem 1rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+}
+
+.btn-login {
+  background: var(--primary);
+  color: #fff !important;
+}
+
+.btn-logout {
+  background: transparent;
+  border: 1px solid var(--danger);
+  color: var(--danger) !important;
+}
+
+.btn-logout:hover {
+  background: var(--danger);
+  color: #fff !important;
+}
+
+/* ===== Container ===== */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  flex: 1;
+}
+
+/* ===== Cards ===== */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+.card h2 {
+  margin-bottom: 1rem;
+  font-size: 1.15rem;
+  color: var(--text);
+}
+
+.info-card {
+  border-left: 4px solid var(--primary);
+}
+
+/* ===== Grid ===== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.stat-card {
+  text-align: center;
+}
+
+.stat-card h3 {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.stat {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.stat.danger {
+  color: var(--danger);
+}
+
+/* ===== Hero (index) ===== */
+.hero {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.hero h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero .subtitle {
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+.hero .card {
+  text-align: left;
+  max-width: 600px;
+  margin: 1.5rem auto;
+}
+
+/* ===== Tables ===== */
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.info-table td {
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.info-table td:first-child {
+  font-weight: 600;
+  color: var(--text-muted);
+  width: 40%;
+}
+
+/* ===== Auth ===== */
+.auth-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+}
+
+.auth-card h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-size: 0.95rem;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.auth-footer {
+  text-align: center;
+  margin-top: 1.25rem;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+/* ===== Buttons ===== */
+.btn {
+  display: inline-block;
+  padding: 0.65rem 1.5rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border: none;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+  color: #fff;
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+/* ===== Alerts ===== */
+.alert {
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius);
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.alert-danger {
+  background: rgba(255, 77, 106, 0.15);
+  border: 1px solid var(--danger);
+  color: var(--danger);
+}
+
+.alert-warning {
+  background: rgba(255, 179, 71, 0.12);
+  border: 1px solid var(--warning);
+  color: var(--warning);
+}
+
+/* ===== Badges ===== */
+.badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.badge-active {
+  background: rgba(78, 205, 196, 0.18);
+  color: var(--success);
+}
+
+/* ===== Profile ===== */
+.profile-card {
+  text-align: center;
+}
+
+.avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0 auto 1rem;
+}
+
+.profile-card .info-table {
+  text-align: left;
+}
+
+/* ===== Link list ===== */
+.link-list {
+  list-style: none;
+  padding: 0;
+}
+
+.link-list li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.link-list li:last-child {
+  border-bottom: none;
+}
+
+code {
+  background: var(--bg);
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  color: var(--warning);
+}
+
+/* ===== Error pages ===== */
+.error-page {
+  text-align: center;
+  padding: 4rem 0;
+}
+
+.error-page h1 {
+  font-size: 5rem;
+  color: var(--danger);
+  margin-bottom: 0.5rem;
+}
+
+.error-page p {
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+/* ===== Welcome text ===== */
+.welcome {
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.text-muted {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin-top: 0.75rem;
+}
+
+/* ===== Footer ===== */
+.footer {
+  text-align: center;
+  padding: 1.5rem;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  border-top: 1px solid var(--border);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+}

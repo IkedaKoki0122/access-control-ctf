@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}SecureCorp — Welcome{% endblock %}
+
+{% block content %}
+<div class="hero">
+  <h1>Welcome to SecureCorp Portal</h1>
+  <p class="subtitle">Secure employee management system</p>
+
+  <div class="card info-card">
+    <h2>System Information</h2>
+    <table class="info-table">
+      <tr><td>Portal Version</td><td>3.2.1</td></tr>
+      <tr><td>Security Level</td><td>Standard</td></tr>
+      <tr><td>Access Control</td><td>Role-Based (RBAC)</td></tr>
+      <tr><td>Last Audit</td><td>2024-11-15</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>Employee Notice</h2>
+    <p>All employees must use their assigned credentials to access the portal.
+       Unauthorised access attempts will be logged and reported.</p>
+    <a href="{{ url_for('login') }}" class="btn btn-primary">Login to Portal</a>
+  </div>
+</div>
+{% endblock %}

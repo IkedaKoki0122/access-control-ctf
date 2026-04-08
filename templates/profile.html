@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}SecureCorp — Profile{% endblock %}
+
+{% block content %}
+<div class="profile">
+  <h1>User Profile</h1>
+
+  <div class="card profile-card">
+    <div class="avatar">{{ name[0] | upper }}</div>
+    <h2>{{ name }}</h2>
+    <table class="info-table">
+      <tr><td>Username</td><td>{{ username }}</td></tr>
+      <tr><td>Role</td><td>{{ role | capitalize }}</td></tr>
+      <tr><td>Department</td><td>Engineering</td></tr>
+      <tr><td>Status</td><td><span class="badge badge-active">Active</span></td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>Available API Endpoints</h2>
+    <p>As a <strong>{{ role }}</strong> user, you have access to:</p>
+    <ul class="link-list">
+      <li><code>GET /api/users/{{ username }}</code> — Your profile data</li>
+      <li><code>GET /api/users/&lt;username&gt;</code> — Look up other users</li>
+    </ul>
+    <p class="text-muted">Admin-only endpoints are restricted to authorised personnel.</p>
+  </div>
+</div>
+{% endblock %}

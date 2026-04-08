@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}SecureCorp — Admin Panel{% endblock %}
+
+{% block content %}
+<div class="admin">
+  <h1>Admin Panel</h1>
+  <div class="alert alert-warning">Restricted Area — Authorised Personnel Only</div>
+
+  <div class="grid">
+    <div class="card stat-card">
+      <h3>Total Users</h3>
+      <p class="stat">4</p>
+    </div>
+    <div class="card stat-card">
+      <h3>Active Sessions</h3>
+      <p class="stat">2</p>
+    </div>
+    <div class="card stat-card">
+      <h3>Security Alerts</h3>
+      <p class="stat danger">3</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Admin Actions</h2>
+    <ul class="link-list">
+      <li><a href="/api/admin/flag">Retrieve System Flag</a></li>
+      <li><a href="/api/debug/users">Debug — User List</a></li>
+      <li><a href="/api/users/admin">Admin Profile Data</a></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Flag Status</h2>
+    <p>{{ flag }}</p>
+  </div>
+</div>
+{% endblock %}
